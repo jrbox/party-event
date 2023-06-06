@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PartyEventRepository extends JpaRepository<PartyEvent, String> {
-    // Ajoutez ici les méthodes de recherche personnalisées si nécessaire
+
 }
