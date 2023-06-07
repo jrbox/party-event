@@ -7,6 +7,8 @@ import com.partyevent.repositories.PartyEventRepository;
 import com.partyevent.repositories.SubscriptionRepository;
 import com.partyevent.repositories.UserRepository;
 
+import java.util.List;
+
 public class SubscriptionService {
     private SubscriptionRepository subscriptionRepository;
 
@@ -28,16 +30,12 @@ public class SubscriptionService {
         return null;
     }
 
-    public void unsubscribe(String userName, String eventId) {
-        User user = userRepository.findByUserName(userName);
+    public void unsubscribe(String eventId) {
         PartyEvent event = partyEventRepository.findById(eventId).orElse(null);
 
-        if (user != null && event != null) {
-            Subscription subscription = subscriptionRepository.findByUserAndEvent(user, event);
-            if (subscription != null) {
-                subscriptionRepository.delete(subscription);
-            }
+        if (event != null) {
+            List<Subscription> subscriptions = subscriptionRepository.findByEvent(event);
+            subscriptionRepository.deleteAll(subscriptions);
         }
-    }
 
-}
+}}
