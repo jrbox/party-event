@@ -1,0 +1,19 @@
+services:
+    bdd-mysql-service:
+      image: mysql
+      container_name: party-event-bdd-mysql
+      ports: 
+        - 3306:3306
+      environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: partyevent
+    server-app-service:
+      container_name: party-event-server-app
+      build: ./server
+      ports: 
+        - 8080:8080
+    web-app-service:
+      container_name: party-event-web-app
+      build: ./web-app
+      ports: 
+        - 80:80
