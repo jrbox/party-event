@@ -6,15 +6,23 @@ import com.partyevent.models.User;
 import com.partyevent.repositories.PartyEventRepository;
 import com.partyevent.repositories.SubscriptionRepository;
 import com.partyevent.repositories.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class SubscriptionService {
-    private SubscriptionRepository subscriptionRepository;
+    private final SubscriptionRepository subscriptionRepository;
 
     private UserRepository userRepository;
 
     private PartyEventRepository partyEventRepository;
+
+    public SubscriptionService(SubscriptionRepository subscriptionRepository, UserRepository userRepository, PartyEventRepository partyEventRepository) {
+        this.subscriptionRepository = subscriptionRepository;
+        this.userRepository = userRepository;
+        this.partyEventRepository = partyEventRepository;
+    }
 
     public Subscription subscribe(String name, String eventPartyEvent) {
         User user = userRepository.findByName(name);

@@ -11,10 +11,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/party-events")
+@RequestMapping("/api/party-events")
 public class PartyEventController {
 
-    public PartyEventService partyEventService;
+    public final PartyEventService partyEventService;
+
+    public PartyEventController(PartyEventService partyEventService) {
+        this.partyEventService = partyEventService;
+    }
 
 //    @PostMapping("/party-events")
 //    public PartyEvent createPartyEvent(@PathVariable("id") Long id, @PathVariable("name") String name, @PathVariable("description") String description, @PathVariable("categories")List<PartyEventCategory> partyEventCategories,
