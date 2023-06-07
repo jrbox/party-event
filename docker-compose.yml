@@ -4,6 +4,8 @@ services:
       container_name: party-event-bdd-mysql
       ports: 
         - 3306:3306
+      expose:
+        - 3306
       environment:
        MYSQL_ROOT_PASSWORD: root
        MYSQL_DATABASE: partyevent
