@@ -2,22 +2,19 @@ package com.partyevent.controllers;
 
 import com.partyevent.models.Subscription;
 import com.partyevent.services.SubscriptionService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/subscriptions")
 public class SubscriptionController {
     private SubscriptionService subscriptionService;
-    @PostMapping("/subscribe")
-    public Subscription subscribe(@RequestParam("userName") String userName, @RequestParam("eventPartyEvent") String eventPartyEvent) {
-        return subscriptionService.subscribe(userName, eventPartyEvent);
+    @PostMapping("/events/{eventId}/users/{userName}")
+    public Subscription subscribe(@PathVariable("eventId") String eventId, @PathVariable("userName") String userName) {
+        return subscriptionService.subscribe(userName, eventId);
     }
 
-    @PostMapping("/unsubscribe")
-    public void unsubscribe(@RequestParam("userName") String userName, @RequestParam("event") String eventId) {
-        subscriptionService.unsubscribe(userName, eventId);
+    @DeleteMapping("/{subscriptionId}")
+    public void unsubscribe(@PathVariable("subscriptionId") String subscriptionId) {
+        subscriptionService.unsubscribe(subscriptionId);
     }
 }
