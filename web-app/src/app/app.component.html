@@ -147,32 +147,11 @@
   <h2>Evénements</h2>
 
   <div class="card-container">
-    <app-event-card
+    <app-event-card *ngFor="let event of partyEvents"
       class="card"
-      title="Match France - Portugal"
-      subtitle="22 juin 2023"
-      description="Venez supporter l'équipe de france pour la final de la coupe du monde."
-    >
-    </app-event-card>
-    <app-event-card
-      class="card"
-      title="Concert 80"
-      subtitle="13 Septembre 2023"
-      description="Super concert des années 80 pour tout le monde sans limite d'age."
-    >
-    </app-event-card>
-    <app-event-card
-      class="card"
-      title="Braderie de lille 2023"
-      subtitle="06 septembre 2023"
-      description="Participez à la plus grande braderie d'europe du vendredi au dimanche."
-    >
-    </app-event-card>
-    <app-event-card
-      class="card"
-      title="Conférence Killian"
-      subtitle="31 décembre 2023"
-      description="Conférence international sur PHP :)"
+      title="{{ event.name }}"
+      subtitle="{{ event.startDate | date: 'dd/MM/yyyy' }}"
+      description="{{ event.description }}"
     >
     </app-event-card>
   </div>
