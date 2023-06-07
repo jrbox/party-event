@@ -5,6 +5,7 @@ import com.partyevent.models.PartyEventSearch;
 import com.partyevent.repositories.PartyEventRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class PartyEventService {
     private PartyEventRepository partyEventRepository;
@@ -18,5 +19,13 @@ public class PartyEventService {
     }
     public PartyEvent findPartyEvent(PartyEventSearch partyEventSearch) {
         return partyEventRepository.findByCriteria(partyEventSearch);
+    }
+
+    public Optional<PartyEvent> findPartyEventById(String id) {
+        return partyEventRepository.findById(id);
+    }
+
+    public List<PartyEvent> findAllPartyEvents() {
+        return partyEventRepository.findAll();
     }
 }

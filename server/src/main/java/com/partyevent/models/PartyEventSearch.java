@@ -14,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class PartyEventSearch {
 
-    private UUID id;
+    private Long id;
     private String name;
     private Date startEnd;
     private Date endDate;
