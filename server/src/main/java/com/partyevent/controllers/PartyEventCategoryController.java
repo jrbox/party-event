@@ -17,8 +17,8 @@ public class PartyEventCategoryController {
         this.partyEventCategoryService = partyEventCategoryService;
     }
 
-    @PostMapping("/categories")
-    public PartyEventCategory createPartyEventCategory(@PathVariable PartyEventCategory partyEventCategory) {
+    @PostMapping()
+    public PartyEventCategory createPartyEventCategory(@RequestBody PartyEventCategory partyEventCategory) {
         return partyEventCategoryService.createPartyEventCategory(partyEventCategory);
     }
 

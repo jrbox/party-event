@@ -17,8 +17,8 @@ public class PartyEventController {
         this.partyEventService = partyEventService;
     }
 
-    @PostMapping("/party-events")
-    public PartyEvent createPartyEvent(@PathVariable PartyEvent partyEvent) {
+    @PostMapping()
+    public PartyEvent createPartyEvent(@RequestBody PartyEvent partyEvent) {
         return partyEventService.createPartyEvent(partyEvent);
     }
 
