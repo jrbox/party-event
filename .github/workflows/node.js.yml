@@ -23,6 +23,8 @@ jobs:
         working-directory: ./web-app
     steps:
     - uses: actions/checkout@v3
+    - run: ls -a
+    - run: pwd
     - run: cd web-app
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
