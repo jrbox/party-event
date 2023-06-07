@@ -15,10 +15,7 @@ public class PartyEventService {
     }
 
     public List<PartyEvent> findPartyEvents(PartyEventSearch partyEventSearch) {
-        return partyEventRepository.findPartyEventsByCriteria(partyEventSearch);
-    }
-    public PartyEvent findPartyEvent(PartyEventSearch partyEventSearch) {
-        return partyEventRepository.findByCriteria(partyEventSearch);
+        return partyEventRepository.findAll();
     }
 
     public Optional<PartyEvent> findPartyEventById(String id) {
@@ -28,4 +25,6 @@ public class PartyEventService {
     public List<PartyEvent> findAllPartyEvents() {
         return partyEventRepository.findAll();
     }
+
+
 }
