@@ -1,7 +1,6 @@
 package com.partyevent.controllers;
 
 import com.partyevent.models.PartyEvent;
-import com.partyevent.models.PartyEventSearch;
 import com.partyevent.services.PartyEventService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +16,12 @@ public class PartyEventController {
 
     public PartyEventService partyEventService;
 
+//    @PostMapping("/party-events")
+//    public PartyEvent createPartyEvent(@PathVariable("id") Long id, @PathVariable("name") String name, @PathVariable("description") String description, @PathVariable("categories")List<PartyEventCategory> partyEventCategories,
+//                                  @PathVariable("capacity") Integer capacity, @PathVariable("startDate") Date startDate, @PathVariable("endDate") Date endDate) {
+//        return partyEventService.createPartyEvent(id,name,description,partyEventCategories,capacity,startDate,endDate);
+//    }
+
     @GetMapping()
     public List<PartyEvent> findAllPartyEvents(){
         return partyEventService.findAllPartyEvents();
@@ -26,10 +31,10 @@ public class PartyEventController {
 //        return partyEventService.findPartyEvents(partyEventSearch);
 //    }
 
-    @GetMapping("/{partyEventSearch}")
-    public PartyEvent findPartyEvent(@PathVariable("partyEventSearch") PartyEventSearch partyEventSearch){
-        return partyEventService.findPartyEvent(partyEventSearch);
-    }
+//    @GetMapping("/{partyEventSearch}")
+//    public PartyEvent findPartyEvent(@PathVariable("partyEventSearch") PartyEventSearch partyEventSearch){
+//        return partyEventService.findPartyEvent(partyEventSearch);
+//    }
 
     @GetMapping("/{id}")
     public Optional<PartyEvent> findPartyEventById(@PathVariable("id") String id){

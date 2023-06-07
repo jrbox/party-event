@@ -1,9 +1,6 @@
 package com.partyevent.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +21,8 @@ public class PartyEvent {
     private Long id;
     private String name;
     private String description;
+
+    @OneToMany
     private List<PartyEventCategory> partyEventCategories;
     private Integer capacity;
     private Date startDate;

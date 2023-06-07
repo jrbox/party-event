@@ -22,11 +22,9 @@ public class Subscription {
     private Date openDate;
 
     @ManyToOne
-    @JoinColumn(name = "id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "id")
     private PartyEvent event;
 
 }

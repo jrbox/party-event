@@ -16,8 +16,8 @@ public class SubscriptionService {
 
     private PartyEventRepository partyEventRepository;
 
-    public Subscription subscribe(String userName, String eventPartyEvent) {
-        User user = userRepository.findByUserName(userName);
+    public Subscription subscribe(String name, String eventPartyEvent) {
+        User user = userRepository.findByName(name);
         PartyEvent event = partyEventRepository.findById(eventPartyEvent).orElse(null);
 
         if (user != null && event != null) {
