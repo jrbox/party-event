@@ -1,6 +1,19 @@
-services: # Here we define our service(s)
-    web-app-service: # The name of the service
-      container_name: party-event-web-app  # Container name
-      build: ./web-app # Location of our Dockerfile
+services:
+    bdd-mysql-service:
+      image: mysql
+      container_name: party-event-bdd-mysql
       ports: 
-        - '80:80' # Port mapping
+        - 3306:3306
+      environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: partyevent
+    server-app-service:
+      container_name: party-event-server-app
+      build: ./server
+      ports: 
+        - 8080:8080
+    web-app-service:
+      container_name: party-event-web-app
+      build: ./web-app
+      ports: 
+        - 80:80
