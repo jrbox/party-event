@@ -1,15 +1,17 @@
 services:
     bdd:
-      image: mysql
+      image: mariadb
       container_name: party-event-bdd
+      hostname: bdd
       restart: always
       ports: 
         - 3306:3306
       environment:
-       MYSQL_ROOT_PASSWORD: root
-       MYSQL_DATABASE: partyevent
+       MARIADB_ROOT_PASSWORD: root
+       MARIADB_DATABASE: party-event
     adminer:
       image: adminer
+      container_name: party-event-bdd-client
       restart: always
       ports:
         - 8085:8080
