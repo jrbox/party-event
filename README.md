@@ -1,6 +1,6 @@
 # party-event
 
-
+![maquette](./docs/maquette.jpg)
 
 ## Utilisation
 ```shell
